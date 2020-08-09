@@ -9,6 +9,14 @@
      box-sizing: border-box;
 } 
 
+.title {
+    background-color: #33bebe;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    padding-top: 20px;
+}
+
 .app {
     display: -webkit-flex;
     display: flex;
@@ -16,6 +24,7 @@
 
 .screenshot {
      max-width: 460px;
+     margin-right: 20px;
  }
 .description {
     max-width: 705px;
