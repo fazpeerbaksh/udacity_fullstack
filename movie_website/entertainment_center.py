@@ -26,4 +26,6 @@ national_treasure = media.Movie('National Treasure',
 
 movies = [toy_story, avatar, mission_impossible, national_treasure]
 
-fresh_tomatoes.open_movies_page(movies)
+#fresh_tomatoes.open_movies_page(movies)
+
+print(media.Movie.__doc__)
