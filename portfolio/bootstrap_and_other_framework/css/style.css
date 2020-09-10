@@ -1,4 +1,13 @@
-* {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+body {
+    font-family: 'Lato', sans-serif;
     color: grey;
+    font-weight: 300;
+}
+
+.text-muted {
+    color: #BCBBBB;
+}
+
+.text-thin {
+    font-weight: 100;
 }
