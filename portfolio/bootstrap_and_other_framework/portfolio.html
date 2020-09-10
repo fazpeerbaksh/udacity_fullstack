@@ -8,6 +8,7 @@
         <!-- custom style last so that bootstrap does not override it-->
         <link rel="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
+        <script src="js/jquery-3.5.1.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
@@ -38,21 +39,73 @@
             </div>
             <div class="row text-center">
               <div class="col-md-6">
-                  <img src="http://placekitten.com/555/300" class="img-responsive">
+                  <img src="http://placekitten.com/555/300" class="img-responsive" data-toggle="modal" data-target="#project1">
                   <h3>Pedometer</h3>
                   <p><a href="https://github.com/fazpeerbaksh/pedometer">https://github.com/fazpeerbaksh/pedometer</a></p>
               </div>
               <div class="col-md-6">
-                <img src="http://placekitten.com/555/300" class="img-responsive">
+                <img src="http://placekitten.com/555/300" class="img-responsive" data-toggle="modal" data-target="#project2">
                 <h3>Heart Rate</h3>
                 <p><a href="https://github.com/fazpeerbaksh/pedometer">https://github.com/fazpeerbaksh/pedometer</a></p>
               </div>
               <div class="col-md-6">
-                <img src="http://placekitten.com/555/300" class="img-responsive">
+                <img src="http://placekitten.com/555/300" class="img-responsive" data-toggle="modal" data-target="#project3">
                 <h3>AR</h3>
                 <p><a href="https://github.com/fazpeerbaksh/pedometer">https://github.com/fazpeerbaksh/pedometer</a></p>
               </div>
             </div>
+          </div>
+
+          <!-- Modal -->
+      <div class="modal fade" id="project1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h4 class="modal-title" id="myModalLabel">Favorite App Page</h4>
+              </div>
+              <div class="modal-body">
+                  <img class="img-responsive" src="http://placekitten.com/555/300">
+                  This was my first project in this class. I learned a lot about HTML and CSS.
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+          </div>
+      </div>
+      </div>
+
+      <div class="modal fade" id="project2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Favorite App Page</h4>
+                </div>
+                <div class="modal-body">
+                    <img class="img-responsive" src="http://placekitten.com/555/300">
+                    This was my first project in this class. I learned a lot about HTML and CSS.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="modal fade" id="project3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h4 class="modal-title" id="myModalLabel">Favorite App Page</h4>
+                  </div>
+                  <div class="modal-body">
+                      <img class="img-responsive" src="http://placekitten.com/555/300">
+                      This was my first project in this class. I learned a lot about HTML and CSS.
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
           </div>
     </body>
 </html>
