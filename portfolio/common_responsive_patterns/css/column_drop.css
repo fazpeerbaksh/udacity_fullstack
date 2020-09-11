@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 100%;
+}
+
+.dark_blue {
+    background-color: darkblue;
+    height: 150px;
+}
+
+.light_blue {
+    background-color: lightseagreen;
+    height: 150px;
+}
+
+.green {
+    background-color: green;
+    height: 150px;
+}
+
+@media screen and (min-width: 450px) {
+    .dark_blue {
+        width: 25%;
+    }
+    .light_blue {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 550px) {
+    .dark_blue, .green{
+        width: 25%;
+    }
+    .light_blue {
+        width: 50%;
+    }
+}
