@@ -11,10 +11,12 @@ nav {
     background-color: white;
 }
 
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 @media screen and (max-width: 650px) {
-
-    
 
     .nav {
         z-index: 1;
@@ -46,19 +48,50 @@ nav {
         text-align: center;
         text-transform: uppercase;
       }
-      
-      .nav a {
-        text-decoration: none;
-        color: #616161;
-        padding: 1.5em;
-      }
-      
-      .nav a:hover {
-        text-decoration: underline;
-        color: #212121;
-      }
 
     #menu {
         visibility: visible;
+    }
+}
+
+@media screen and (min-width: 651px) {
+    .hero {
+        width: 60%;
+        order: 0;
+    }
+    .weather {
+        width: 40%;
+        order: 1;
+    }
+    .top-news {
+        order: 2;
+    }
+    .scores {
+        order: 3;
+    }
+    .recent-news {
+        order: 4;
+    }
+}
+
+@media screen and (min-width: 851px) {
+    .hero {
+        width: 60%;
+        order: 0;
+    }
+    .weather {
+        width: 30%;
+        order: 3;
+    }
+    .top-news {
+        width: 40%;
+        order: 1;
+    }
+    .scores {
+        width: 70%;
+        order: 2;
+    }
+    .recent-news {
+        order: 4;
     }
 }
