@@ -1,0 +1,30 @@
+table {
+    border: 1px solid #ddd;
+  }
+  tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  @media screen and (max-width: 500px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    td { 
+      position: relative;
+      padding-left: 50%; 
+    }
+    
+    td:before { 
+      position: absolute;
+      left: 6px;
+      content: attr(data-th);
+      font-weight: bold;
+    }
+    td:first-of-type {
+      font-weight: bold;
+    }
+  }
