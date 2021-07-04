@@ -25,7 +25,7 @@ form_html = """
 """
 
 hidden_html = """
-<input type="hidden name="food" value="%s">
+<input type="hidden" name="food" value="%s">
 """
 
 item_html = "<li>%s</li>"
