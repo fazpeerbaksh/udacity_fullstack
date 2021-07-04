@@ -50,7 +50,7 @@ class MainPage(webapp2.RequestHandler):
             output_items = ""
             for item in items:
                 output_hidden += hidden_html % item
-                output_items += item_list % item
+                output_items += item_html % item
 
             output_shopping = shopping_list_html % output_items
             output += output_shopping 
