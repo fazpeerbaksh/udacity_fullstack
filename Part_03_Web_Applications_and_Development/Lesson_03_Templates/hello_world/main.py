@@ -58,8 +58,8 @@ class Handler(webapp2.RedirectHandler):
 class MainPage(Handler):
     def get(self):
         # self.response.headers['Content-Type'] = 'text/plain'
-
-        self.render("shopping_list.html", name=self.request.get("name"))
+        n = int(self.request.get("n"))
+        self.render("shopping_list.html", n=n)
 
         # output = form_html
         # output_hidden = ""
