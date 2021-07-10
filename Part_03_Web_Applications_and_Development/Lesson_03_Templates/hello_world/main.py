@@ -54,25 +54,28 @@ class Handler(webapp2.RedirectHandler):
 
     def render(self, template, **kw):
         self.write(self.render_str(template, **kw))
-        
-class MainPage(webapp2.RequestHandler):
+
+class MainPage(Handler):
     def get(self):
         # self.response.headers['Content-Type'] = 'text/plain'
-        output = form_html
-        output_hidden = ""
+
+        self.render("shopping_list.html", name=self.request.get("name"))
+
+        # output = form_html
+        # output_hidden = ""
         
-        items = self.request.get_all("food")
-        if items:
-            output_items = ""
-            for item in items:
-                output_hidden += hidden_html % item
-                output_items += item_html % item
+        # items = self.request.get_all("food")
+        # if items:
+        #     output_items = ""
+        #     for item in items:
+        #         output_hidden += hidden_html % item
+        #         output_items += item_html % item
 
-            output_shopping = shopping_list_html % output_items
-            output += output_shopping 
+        #     output_shopping = shopping_list_html % output_items
+        #     output += output_shopping 
 
-        output = output % output_hidden    
-        self.response.write(output)
+        # output = output % output_hidden    
+        # self.write(output)
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
