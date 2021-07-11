@@ -21,6 +21,9 @@ import hashlib
 
 import hmac
 
+import random
+import string
+
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
 
@@ -35,6 +38,12 @@ def check_secure_val(h):
     val = h.split("|")[0]
     if h == make_secure_val(val):
         return val
+
+def make_salt():
+    salty=''
+    for x in range(5):
+        salty+=random.choice(string.ascii_letters)
+    return salty
 
 class Handler(webapp2.RedirectHandler):
     def write(self, *a, **kw):
