@@ -17,8 +17,21 @@ import os
 import webapp2
 import jinja2
 
+import hashlib
+
 template_dir = os.path.join(os.path.dirname(__file__), 'templates')
 jinja_env = jinja2.Environment(loader = jinja2.FileSystemLoader(template_dir), autoescape=True)
+
+def hash_str(s):
+    return hashlib.md5(s).hexdigest()
+
+def make_secure_val(s):
+    return "%s|%s" % (s, hash_str(s)) 
+
+def check_secure_val(h):
+    val = h.split("|")[0]
+    if h == make_secure_val(val):
+        return val
 
 class Handler(webapp2.RedirectHandler):
     def write(self, *a, **kw):
@@ -33,13 +46,25 @@ class Handler(webapp2.RedirectHandler):
 
 class MainPage(Handler):
     def get(self):
-        visits = self.request.cookies.get('visits', '0')
-        if visits.isdigit():
-            visits = int(visits) + 1
+        self.response.headers['Content-Type'] = 'text/plain'
+
+        visits = 0
+        visits_cookie_str = self.request.cookies.get('visits')
+        if visits_cookie_str:
+            cookie_val = check_secure_val(visits_cookie_str)
+            if cookie_val:
+                visits = int(cookie_val)
+
+        visits += 1
+
+        new_cookie_val = make_secure_val(str(visits))
+
+        self.response.headers.add_header('Set-Cookie', 'visits=%s' % new_cookie_val)
+
+        if visits > 1000:
+            self.write("You are the best!")
         else:
-            visits = 0
-        self.response.headers.add_header('Set-Cookie', 'visits=%s' % visits)
-        self.render("cookie.html", visits=visits)
+            self.write("You've been here %s times" % visits)
         
 
 app = webapp2.WSGIApplication([
