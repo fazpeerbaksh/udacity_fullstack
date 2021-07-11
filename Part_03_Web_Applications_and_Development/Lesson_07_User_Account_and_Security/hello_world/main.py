@@ -45,6 +45,11 @@ def make_salt():
         salty+=random.choice(string.ascii_letters)
     return salty
 
+def make_pw_hash(name, pw):
+    salt = make_salt
+    h = hashlib.sha256(name + pw + salt).hexdigest()
+    return "%s,%s" % (h, salt)
+
 class Handler(webapp2.RedirectHandler):
     def write(self, *a, **kw):
         self.response.out.write(*a, **kw)
