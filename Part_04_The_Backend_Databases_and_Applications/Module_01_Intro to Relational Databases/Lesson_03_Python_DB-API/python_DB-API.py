@@ -1,10 +1,10 @@
 import sqlite3
 
-conn = sqlite3.connect('Cookies')
+conn = sqlite3.connect('cookies')
 cursor = conn.cursor()
 
 cursor.execute(
-    "SELECT * FROM cookies")
+    "SELECT * FROM moz_cookies")
 
 results = cursor.fetchall()
 
