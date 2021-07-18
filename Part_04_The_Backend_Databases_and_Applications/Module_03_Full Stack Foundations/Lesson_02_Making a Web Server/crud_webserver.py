@@ -26,10 +26,9 @@ class webServerHandler(BaseHTTPRequestHandler):
                     restaurant_block = ("""
                     <div>
                         <p> %s </p>
-                        <form>
-                            <input type='button' name='edit' value='EDIT'>
-                            <input type='button' name='delete' value='DELETE'>
-                        </form>
+                        <a href='#'>Edit</a>
+                        <a href='#'>Delete</a>
+                        <br>
                         <br>
                     </div>
                     """ % (item.name,))
