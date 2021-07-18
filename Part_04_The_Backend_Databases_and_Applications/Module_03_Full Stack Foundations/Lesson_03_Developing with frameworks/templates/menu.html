@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
 
+<head>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
 <body>
 
     <h1>{{restaurant.name}}</h1>
 
-    <a href = "{{ url_for('newMenuItem', restaurant_id = restaurant.id) }}">Create New Item</a>
+    <a href="{{ url_for('newMenuItem', restaurant_id = restaurant.id) }}">Create New Item</a>
 
     <!--MESSAGE FLASHING EXAMPLE -->
     {% with messages = get_flashed_messages() %}
