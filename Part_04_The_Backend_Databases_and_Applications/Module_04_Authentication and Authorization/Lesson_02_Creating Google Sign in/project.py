@@ -29,6 +29,9 @@ CLIENT_ID = json.loads(
     open('client_secrets.json', 'r').read())['web']['client_id']
 APPLICATION_NAME = "Restaurant Menu Application"
 
+def isLoggedIn():
+    return 'username' in login_session
+
 # Create anti-forgery state token
 @app.route('/login')
 def showLogin():
@@ -182,14 +185,16 @@ def showRestaurants():
 #Create a new restaurant
 @app.route('/restaurant/new/', methods=['GET','POST'])
 def newRestaurant():
-  if request.method == 'POST':
-      newRestaurant = Restaurant(name = request.form['name'])
-      session.add(newRestaurant)
-      flash('New Restaurant %s Successfully Created' % newRestaurant.name)
-      session.commit()
-      return redirect(url_for('showRestaurants'))
-  else:
-      return render_template('newRestaurant.html')
+    if not isLoggedIn():
+        return redirect('/login')
+    if request.method == 'POST':
+        newRestaurant = Restaurant(name = request.form['name'])
+        session.add(newRestaurant)
+        flash('New Restaurant %s Successfully Created' % newRestaurant.name)
+        session.commit()
+        return redirect(url_for('showRestaurants'))
+    else:
+        return render_template('newRestaurant.html')
 
 #Edit a restaurant
 @app.route('/restaurant/<int:restaurant_id>/edit/', methods = ['GET', 'POST'])
